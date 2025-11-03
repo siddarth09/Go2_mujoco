@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+import os
+from glob import glob
 
 package_name = 'go1_mujoco'
 
@@ -10,20 +12,19 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/config', glob('config/*.yaml')),
+        ('share/' + package_name + '/launch', glob('launch/*.launch.py')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='siddarth',
     maintainer_email='siddarth.dayasagar@gmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
-    extras_require={
-        'test': [
-            'pytest',
-        ],
-    },
+    description='GO2 Mujoco Isaac Sim integration test node',
+    license='MIT',
+    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'test_move = go1_mujoco.isaac_test:main',
         ],
     },
 )

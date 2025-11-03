@@ -1,0 +1,51 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    go2_position_controller:
+      type: forward_command_controller/ForwardCommandController
+
+
+go2_position_controller:
+  ros__parameters:
+    joints:
+      - FL_hip_joint
+      - FL_thigh_joint
+      - FL_calf_joint
+      - FR_hip_joint
+      - FR_thigh_joint
+      - FR_calf_joint
+      - RL_hip_joint
+      - RL_thigh_joint
+      - RL_calf_joint
+      - RR_hip_joint
+      - RR_thigh_joint
+      - RR_calf_joint
+
+    interface_name: position
+
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+    # --------------------------
+    # Initial pose on controller load
+    # --------------------------
+    initial_positions:
+      FL_hip_joint: 0.0
+      FL_thigh_joint: 0.8
+      FL_calf_joint: -1.5
+      FR_hip_joint: 0.0
+      FR_thigh_joint: 0.8
+      FR_calf_joint: -1.5
+      RL_hip_joint: 0.0
+      RL_thigh_joint: 0.8
+      RL_calf_joint: -1.5
+      RR_hip_joint: 0.0
+      RR_thigh_joint: 0.8
+      RR_calf_joint: -1.5
