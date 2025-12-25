@@ -298,7 +298,7 @@ class GoMove:
 
 if __name__ == "__main__":
    
-    robot = GoMove("/home/siddarth/manipulation_ws/src/go1_mujoco/unitree_go2/scene_mjx.xml")
+    robot = GoMove("/home/sid/projects25/src/Go2_mujoco/unitree_go2/scene_mjx.xml")
 
     # Reset to home so you see it when viewer opens
     robot._reset_to_keyframe("home")
